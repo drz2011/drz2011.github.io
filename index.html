@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026马年新春祝福 - 老师专属</title>
+    <title>2026马年新春祝福 - 光谷为明实验学校</title>
     <style>
-        /* 全局样式 */
         * {
             margin: 0;
             padding: 0;
@@ -20,23 +19,60 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            overflow: hidden; /* 隐藏动画溢出部分 */
+            overflow: hidden;
             position: relative;
         }
 
-        /* 动态烟花背景（全屏） */
         #fireworks-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            pointer-events: none; /* 不影响点击操作 */
+            pointer-events: none;
             z-index: 0;
         }
+
+        .page-entrance {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .entrance-btn {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .normal-entrance {
+            background: #e65100;
+            color: white;
+        }
+
+        .admin-entrance {
+            background: #2196f3;
+            color: white;
+        }
+
+        .entrance-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
         
-        /* 登录容器样式（带动画） */
-        .login-container {
+        .login-container, .admin-login-container {
             background: rgba(255, 255, 255, 0.95);
             padding: 40px;
             border-radius: 15px;
@@ -46,39 +82,32 @@
             max-width: 400px;
             position: relative;
             z-index: 1;
-            animation: fadeInUp 0.8s ease-out; /* 登录页入场动画 */
+            animation: fadeInUp 0.8s ease-out;
+            display: none;
         }
 
-        /* 入场动画 */
         @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
         
-        .login-container h1 {
+        .login-container h1, .admin-login-container h1 {
             color: #e65100;
             margin-bottom: 10px;
             font-size: 28px;
-            animation: pulse 2s infinite ease-in-out; /* 标题呼吸动画 */
+            animation: pulse 2s infinite ease-in-out;
         }
 
-        /* 呼吸动画 */
+        .admin-login-container h1 {
+            color: #2196f3;
+        }
+
         @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         
-        .login-container .subtitle {
+        .login-container .subtitle, .admin-login-container .subtitle {
             color: #666;
             margin-bottom: 30px;
             font-size: 16px;
@@ -102,18 +131,23 @@
             border: 2px solid #ddd;
             border-radius: 8px;
             font-size: 16px;
-            transition: all 0.3s ease; /* 输入框渐变动画 */
+            transition: all 0.3s ease;
             background: rgba(255, 255, 255, 0.8);
         }
         
         .input-box input:focus {
             outline: none;
             border-color: #e65100;
-            box-shadow: 0 0 8px rgba(230, 81, 0, 0.2); /* 聚焦发光 */
-            transform: translateY(-2px); /* 轻微上移 */
+            box-shadow: 0 0 8px rgba(230, 81, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .admin-login-container .input-box input:focus {
+            border-color: #2196f3;
+            box-shadow: 0 0 8px rgba(33, 150, 243, 0.2);
         }
         
-        .login-btn {
+        .login-btn, .admin-login-btn {
             width: 100%;
             padding: 12px;
             background: #e65100;
@@ -122,13 +156,16 @@
             border-radius: 8px;
             font-size: 18px;
             cursor: pointer;
-            transition: all 0.3s ease; /* 按钮动画 */
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        /* 按钮点击波纹动画 */
-        .login-btn::after {
+        .admin-login-btn {
+            background: #2196f3;
+        }
+
+        .login-btn::after, .admin-login-btn::after {
             content: "";
             position: absolute;
             top: 50%;
@@ -141,7 +178,7 @@
             transition: width 0.6s ease, height 0.6s ease;
         }
 
-        .login-btn:active::after {
+        .login-btn:active::after, .admin-login-btn:active::after {
             width: 300px;
             height: 300px;
             opacity: 0;
@@ -149,25 +186,28 @@
         
         .login-btn:hover {
             background: #bf360c;
-            transform: translateY(-3px); /* 悬浮上移 */
-            box-shadow: 0 6px 12px rgba(191, 54, 12, 0.2); /* 悬浮阴影 */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(191, 54, 12, 0.2);
+        }
+
+        .admin-login-btn:hover {
+            background: #1976d2;
+            box-shadow: 0 6px 12px rgba(25, 118, 210, 0.2);
         }
         
         .error-tip {
             color: #e63946;
             margin-top: 10px;
             display: none;
-            animation: shake 0.5s ease; /* 错误提示抖动 */
+            animation: shake 0.5s ease;
         }
 
-        /* 抖动动画 */
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
             25% { transform: translateX(-5px); }
             75% { transform: translateX(5px); }
         }
         
-        /* 拜年页面样式（带动画） */
         .newyear-page {
             display: none;
             background: rgba(255, 255, 255, 0.95);
@@ -200,19 +240,12 @@
             font-weight: bold;
             font-size: 24px;
             margin-bottom: 20px;
-            animation: slideIn 1s ease-out; /* 姓名滑入 */
+            animation: slideIn 1s ease-out;
         }
 
-        /* 滑入动画 */
         @keyframes slideIn {
-            0% {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            0% { opacity: 0; transform: translateX(-20px); }
+            100% { opacity: 1; transform: translateX(0); }
         }
         
         .newyear-content {
@@ -222,7 +255,7 @@
             color: #333;
             text-align: left;
             padding: 0 20px;
-            animation: fadeIn 1.2s ease-out; /* 祝福语渐入 */
+            animation: fadeIn 1.2s ease-out;
         }
 
         @keyframes fadeIn {
@@ -233,7 +266,7 @@
         .horse-icon {
             font-size: 60px;
             margin: 20px 0;
-            animation: rotate 3s infinite ease-in-out; /* 小马旋转 */
+            animation: rotate 3s infinite ease-in-out;
         }
 
         @keyframes rotate {
@@ -242,7 +275,7 @@
             75% { transform: rotate(10deg); }
         }
         
-        .back-btn {
+        .back-btn, .logout-btn {
             padding: 10px 20px;
             background: #43a047;
             color: white;
@@ -254,9 +287,14 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            margin: 0 5px;
         }
 
-        .back-btn::after {
+        .logout-btn {
+            background: #f44336;
+        }
+
+        .back-btn::after, .logout-btn::after {
             content: "";
             position: absolute;
             top: 50%;
@@ -269,7 +307,7 @@
             transition: width 0.6s ease, height 0.6s ease;
         }
 
-        .back-btn:active::after {
+        .back-btn:active::after, .logout-btn:active::after {
             width: 300px;
             height: 300px;
             opacity: 0;
@@ -280,283 +318,393 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(46, 125, 50, 0.2);
         }
+
+        .logout-btn:hover {
+            background: #d32f2f;
+            box-shadow: 0 6px 12px rgba(211, 47, 47, 0.2);
+        }
+
+        .admin-page {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 35px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            text-align: center;
+            width: 100%;
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .admin-page h1 {
+            color: #2196f3;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: #f7f9fc;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #2196f3;
+            text-align: left;
+        }
+
+        .stat-card .label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .stat-card .value {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2196f3;
+            margin-top: 5px;
+        }
+
+        .teacher-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .teacher-table th, .teacher-table td {
+            padding: 12px 10px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .teacher-table th {
+            background: #2196f3;
+            color: white;
+        }
+
+        .teacher-table tr:hover {
+            background: #f7f9fc;
+        }
+
+        .contact-info {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #333;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
-    <!-- 动态烟花背景容器 -->
-    <div id="fireworks-container"></div>
 
-    <!-- 登录界面 -->
-    <div class="login-container" id="loginPage">
-        <h1>2026马年新春祝福 🐴</h1>
-        <div class="subtitle">请输入老师姓名，领取专属拜年祝福</div>
-        <div class="input-box">
-            <label for="teacherName">老师姓名：</label>
-            <input type="text" id="teacherName" placeholder="例如：王冬冬、陈燕、朱辉">
+<div id="fireworks-container"></div>
+
+<!-- 入口 -->
+<div class="page-entrance" id="entrancePage">
+    <h1>2026马年新春祝福 🐴</h1>
+    <div class="subtitle">光谷为明实验学校专属</div>
+    <button class="entrance-btn normal-entrance" onclick="showNormalLogin()">老师专属祝福</button>
+    <button class="entrance-btn admin-entrance" onclick="showAdminLogin()">管理员登录</button>
+</div>
+
+<!-- 普通登录 -->
+<div class="login-container" id="loginPage">
+    <h1>领取专属祝福 🎁</h1>
+    <div class="subtitle">光谷为明实验学校 · 2026马年</div>
+    <div class="input-box">
+        <label>老师姓名：</label>
+        <input type="text" id="teacherName" placeholder="如：王冬冬、徐曼">
+    </div>
+    <button class="login-btn" onclick="checkLogin()">领取祝福</button>
+    <div class="error-tip" id="errorTip">姓名错误，请重新输入</div>
+    <button class="back-btn" style="margin-top:15px" onclick="backToEntrance()">返回</button>
+</div>
+
+<!-- 管理员登录 -->
+<div class="admin-login-container" id="adminLoginPage">
+    <h1>管理员登录 🔧</h1>
+    <div class="subtitle">后台数据管理</div>
+    <div class="input-box">
+        <label>用户名：</label>
+        <input type="text" id="adminName" placeholder="Administor">
+    </div>
+    <div class="input-box">
+        <label>密码：</label>
+        <input type="password" id="adminPwd" placeholder="12345678@">
+    </div>
+    <button class="admin-login-btn" onclick="checkAdminLogin()">登录</button>
+    <div class="error-tip" id="adminErrorTip">用户名或密码错误</div>
+    <button class="back-btn" style="margin-top:15px" onclick="backToEntrance()">返回</button>
+</div>
+
+<!-- 祝福页面 -->
+<div class="newyear-page" id="newyearPage">
+    <h1>恭贺新春 🎉</h1>
+    <div class="year-tag">2026农历马年 · 光谷为明实验学校</div>
+    <div class="teacher-name" id="showTeacherName"></div>
+    <div class="newyear-content" id="blessingContent"></div>
+    <div class="horse-icon">🐴</div>
+    <button class="back-btn" onclick="backToLogin()">返回</button>
+</div>
+
+<!-- 管理员后台 → 你要的统计全在这里 -->
+<div class="admin-page" id="adminPage">
+    <h1>管理员后台 · 访问统计 📊</h1>
+    <div class="year-tag">光谷为明实验学校 · 2026马年祝福网站</div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="label">总访问次数</div>
+            <div class="value" id="totalVisit">0</div>
         </div>
-        <button class="login-btn" onclick="checkLogin()">领取祝福</button>
-        <div class="error-tip" id="errorTip">姓名错误！请输入正确的老师姓名</div>
+        <div class="stat-card">
+            <div class="label">今日访问</div>
+            <div class="value" id="todayVisit">0</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">累计消耗流量</div>
+            <div class="value" id="totalFlow">0.00 MB</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">今日消耗流量</div>
+            <div class="value" id="todayFlow">0.00 MB</div>
+        </div>
     </div>
 
-    <!-- 拜年页面（默认隐藏） -->
-    <div class="newyear-page" id="newyearPage">
-        <h1>恭贺新春 🎉</h1>
-        <div class="year-tag">2026农历马年</div>
-        <div class="teacher-name" id="showTeacherName"></div>
-        <div class="newyear-content" id="blessingContent"></div>
-        <div class="horse-icon">🐴</div>
-        <button class="back-btn" onclick="backToLogin()">返回领取其他祝福</button>
+    <div style="text-align:left; margin-top:25px; margin-bottom:10px">
+        <strong>📋 各老师登录统计</strong>
     </div>
 
-    <script>
-        // ---------------------- 动态烟花动画核心代码 ----------------------
-        class Firework {
-            constructor() {
-                this.canvas = document.createElement('canvas');
-                this.ctx = this.canvas.getContext('2d');
-                this.canvas.width = window.innerWidth;
-                this.canvas.height = window.innerHeight;
-                document.getElementById('fireworks-container').appendChild(this.canvas);
-                
-                this.fireworks = [];
-                this.particles = [];
-                this.gravity = 0.05;
-                this.maxParticles = 150;
-                
-                this.animate = this.animate.bind(this);
-                this.animate();
-            }
+    <table class="teacher-table">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>老师姓名</th>
+                <th>学科</th>
+                <th>登录次数</th>
+                <th>最近登录时间</th>
+            </tr>
+        </thead>
+        <tbody id="teacherStatsBody">
+        </tbody>
+    </table>
 
-            createFirework(x, y) {
-                const hue = Math.random() * 60 + 30; // 暖色调（红/金）
-                this.fireworks.push({
-                    x, y,
-                    sx: x, sy: y,
-                    tx: Math.random() * window.innerWidth,
-                    ty: Math.random() * window.innerHeight * 0.6,
-                    speed: Math.random() * 4 + 2,
-                    progress: 0,
-                    hue
-                });
-            }
+    <div class="contact-info">
+        故障反馈：cmci-git@hotmail.com<br>
+        请备注：姓名 + 所教学科
+    </div>
 
-            createParticles(x, y, hue) {
-                const count = Math.floor(Math.random() * 50 + 80);
-                for (let i = 0; i < count; i++) {
-                    const angle = Math.random() * Math.PI * 2;
-                    const speed = Math.random() * 4 + 1;
-                    this.particles.push({
-                        x, y,
-                        vx: Math.cos(angle) * speed,
-                        vy: Math.sin(angle) * speed,
-                        alpha: 1,
-                        decay: Math.random() * 0.01 + 0.005,
-                        hue,
-                        size: Math.random() * 3 + 1
-                    });
-                }
-            }
+    <button class="logout-btn" onclick="logoutAdmin()">退出登录</button>
+</div>
 
-            updateFireworks() {
-                for (let i = this.fireworks.length - 1; i >= 0; i--) {
-                    const fw = this.fireworks[i];
-                    fw.progress += fw.speed;
-                    
-                    const dx = fw.tx - fw.sx;
-                    const dy = fw.ty - fw.sy;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    const progress = fw.progress / dist;
-                    
-                    fw.x = fw.sx + dx * progress;
-                    fw.y = fw.sy + dy * progress;
-                    
-                    if (progress >= 1) {
-                        this.createParticles(fw.x, fw.y, fw.hue);
-                        this.fireworks.splice(i, 1);
-                    }
-                }
-            }
-
-            updateParticles() {
-                for (let i = this.particles.length - 1; i >= 0; i--) {
-                    const p = this.particles[i];
-                    p.vy += this.gravity;
-                    p.x += p.vx;
-                    p.y += p.vy;
-                    p.alpha -= p.decay;
-                    
-                    if (p.alpha <= 0) {
-                        this.particles.splice(i, 1);
-                    }
-                }
-                
-                // 限制粒子数量
-                if (this.particles.length > this.maxParticles) {
-                    this.particles.splice(0, this.particles.length - this.maxParticles);
-                }
-            }
-
-            draw() {
-                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-                
-                // 绘制烟花轨迹
-                this.fireworks.forEach(fw => {
-                    this.ctx.beginPath();
-                    this.ctx.moveTo(fw.sx, fw.sy);
-                    this.ctx.lineTo(fw.x, fw.y);
-                    this.ctx.strokeStyle = `hsl(${fw.hue}, 100%, 50%)`;
-                    this.ctx.lineWidth = 2;
-                    this.ctx.stroke();
-                });
-                
-                // 绘制粒子
-                this.particles.forEach(p => {
-                    this.ctx.beginPath();
-                    this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                    this.ctx.fillStyle = `hsla(${p.hue}, 100%, 50%, ${p.alpha})`;
-                    this.ctx.fill();
-                });
-            }
-
-            animate() {
-                requestAnimationFrame(this.animate);
-                this.updateFireworks();
-                this.updateParticles();
-                this.draw();
-                
-                // 随机生成烟花
-                if (Math.random() < 0.05) {
-                    this.createFirework(
-                        Math.random() * window.innerWidth,
-                        window.innerHeight
-                    );
-                }
-            }
+<script>
+// -------------------------- 烟花动画 --------------------------
+class Firework {
+    constructor(){
+        this.canvas=document.createElement('canvas');
+        this.ctx=this.canvas.getContext('2d');
+        this.canvas.width=window.innerWidth;
+        this.canvas.height=window.innerHeight;
+        document.getElementById('fireworks-container').appendChild(this.canvas);
+        this.fireworks=[];this.particles=[];this.gravity=0.05;this.maxParticles=150;
+        this.animate=this.animate.bind(this);this.animate();
+    }
+    createFirework(x,y){
+        const hue=Math.random()*60+30;
+        this.fireworks.push({x,y,sx:x,sy:y,tx:Math.random()*window.innerWidth,ty:Math.random()*window.innerHeight*0.6,speed:Math.random()*4+2,progress:0,hue});
+    }
+    createParticles(x,y,hue){
+        const c=Math.floor(Math.random()*50+80);
+        for(let i=0;i<c;i++){
+            const a=Math.random()*Math.PI*2;const s=Math.random()*4+1;
+            this.particles.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,alpha:1,decay:Math.random()*0.01+0.005,hue,size:Math.random()*3+1});
         }
+    }
+    updateFireworks(){
+        for(let i=this.fireworks.length-1;i>=0;i--){
+            const f=this.fireworks[i];f.progress+=f.speed;
+            const dx=f.tx-f.sx,dy=f.ty-f.sy,d=Math.sqrt(dx*dx+dy*dy),p=f.progress/d;
+            f.x=f.sx+dx*p;f.y=f.sy+dy*p;
+            if(p>=1){this.createParticles(f.x,f.y,f.hue);this.fireworks.splice(i,1);}
+        }
+    }
+    updateParticles(){
+        for(let i=this.particles.length-1;i>=0;i--){
+            const p=this.particles[i];p.vy+=this.gravity;p.x+=p.vx;p.y+=p.vy;p.alpha-=p.decay;
+            if(p.alpha<=0)this.particles.splice(i,1);
+        }
+        if(this.particles.length>this.maxParticles)this.particles.splice(0,this.particles.length-this.maxParticles);
+    }
+    draw(){
+        this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
+        this.fireworks.forEach(f=>{this.ctx.beginPath();this.ctx.moveTo(f.sx,f.sy);this.ctx.lineTo(f.x,f.y);this.ctx.strokeStyle=`hsl(${f.hue},100%,50%)`;this.ctx.lineWidth=2;this.ctx.stroke();});
+        this.particles.forEach(p=>{this.ctx.beginPath();this.ctx.arc(p.x,p.y,p.size,0,Math.PI*2);this.ctx.fillStyle=`hsla(${p.hue},100%,50%,${p.alpha})`;this.ctx.fill();});
+    }
+    animate(){requestAnimationFrame(this.animate);this.updateFireworks();this.updateParticles();this.draw();if(Math.random()<0.05)this.createFirework(Math.random()*window.innerWidth,window.innerHeight);}
+}
+const fw=new Firework();
+window.addEventListener('resize',()=>{fw.canvas.width=window.innerWidth;fw.canvas.height=window.innerHeight;});
 
-        // 初始化烟花动画
-        const fireworks = new Firework();
-
-        // 窗口大小变化时重置画布
-        window.addEventListener('resize', () => {
-            fireworks.canvas.width = window.innerWidth;
-            fireworks.canvas.height = window.innerHeight;
-        });
-
-        // ---------------------- 原有登录逻辑（保留） ----------------------
-        // 定义老师列表及专属马年祝福语（适配学科/职务）
-        const teacherBlessings = {
-            "王冬冬": `
-                尊敬的王冬冬老师：<br><br>
-                策马扬鞭迎新春，物理乾坤藏妙思！<br>
-                祝您2026马年龙马精神，物理课堂趣意盎然，<br>
-                生活一马平川，事业马到成功，阖家幸福安康！
-            `,
-            "陈燕": `
-                尊敬的陈燕老师：<br><br>
-                笔走龙蛇书锦绣，马踏春风品文香！<br>
-                祝您2026马年神采飞扬，语文课堂墨香四溢，<br>
-                日子鲜衣怒马，万事顺心如意，岁岁皆有欢喜！
-            `,
-            "朱辉": `
-                尊敬的朱辉老师：<br><br>
-                数智策马启新程，加减乘除绘华章！<br>
-                祝您2026马年一马当先，数学课堂妙趣横生，<br>
-                生活龙马奔腾，福气万马奔腾，安康常伴左右！
-            `,
-            "皮霓": `
-                尊敬的皮霓老师：<br><br>
-                骏马迎春添锦绣，匠心育人谱新篇！<br>
-                祝您2026马年策马奔腾，工作顺心顺意，<br>
-                生活鲜妍明媚，福气马不停蹄，万事皆得圆满！
-            `,
-            "徐曼": `
-                尊敬的徐曼老师：<br><br>
-                青春如马踏春来，化育英才绽芳华！<br>
-                祝您2026马年鲜衣怒马，化学课堂精彩纷呈，<br>
-                生活朝气蓬勃，好运一骑绝尘，岁岁青春靓丽！
-            `,
-            "乔延": `
-                尊敬的乔延老师：<br><br>
-                策马回眸观史海，春风化雨育新人！<br>
-                祝您2026马年马壮人强，历史课堂鉴古知今，<br>
-                生活喜乐常伴，前程一马平川，万事称心如意！
-            `,
-            "曾海芳": `
-                尊敬的曾海芳老师：<br><br>
-                马踏祥云传正道，芳馨育人守初心！<br>
-                祝您2026马年福马安康，道法课堂明德启智，<br>
-                生活温馨美满，工作得心应手，阖家幸福无忧！
-            `,
-            "陈龙": `
-                尊敬的陈龙老师：<br><br>
-                龙骧马跃展英姿，德育体育双育人！<br>
-                祝您2026马年龙马呈祥，赛场课堂皆展风采，<br>
-                生活龙马精神，福气源源不断，万事马到功成！
-            `,
-            "刘俊夫": `
-                尊敬的刘俊夫老师：<br><br>
-                骏马扬蹄奔数字，科创逐梦育英才！<br>
-                祝您2026马年策马前行，信息课堂智启未来，<br>
-                生活意气风发，好运策马加鞭，岁岁平安喜乐！
-            `
+// -------------------------- 数据统计（本地存储） --------------------------
+function initStats() {
+    if (!localStorage.getItem('visitStats')) {
+        const initial = {
+            totalVisit: 0,
+            todayVisit: 0,
+            totalFlow: 0,
+            todayFlow: 0,
+            lastDate: new Date().toDateString()
         };
+        localStorage.setItem('visitStats', JSON.stringify(initial));
+    }
 
-        // 获取所有老师姓名列表
-        const validTeachers = Object.keys(teacherBlessings);
+    if (!localStorage.getItem('teacherLogs')) {
+        const teachers = [
+            { name: "王冬冬", subject: "物理", count: 0, lastTime: "-" },
+            { name: "陈燕", subject: "语文", count: 0, lastTime: "-" },
+            { name: "朱辉", subject: "数学", count: 0, lastTime: "-" },
+            { name: "皮霓", subject: "综合", count: 0, lastTime: "-" },
+            { name: "徐曼", subject: "化学", count: 0, lastTime: "-" },
+            { name: "乔延", subject: "历史", count: 0, lastTime: "-" },
+            { name: "曾海芳", subject: "道法", count: 0, lastTime: "-" },
+            { name: "陈龙", subject: "德育+体育", count: 0, lastTime: "-" },
+            { name: "刘俊夫", subject: "信息技术", count: 0, lastTime: "-" }
+        ];
+        localStorage.setItem('teacherLogs', JSON.stringify(teachers));
+    }
 
-        // 验证登录并展示专属祝福
-        function checkLogin() {
-            // 获取用户输入的老师姓名（去除空格，不区分全半角）
-            const inputName = document.getElementById("teacherName").value.trim().replace(/\s/g, "");
-            // 匹配姓名（忽略大小写，兼容输入误差）
-            const matchedName = validTeachers.find(name => name.toLowerCase() === inputName.toLowerCase());
-            
-            if (matchedName) {
-                // 隐藏登录页，显示拜年页
-                document.getElementById("loginPage").style.display = "none";
-                document.getElementById("newyearPage").style.display = "block";
-                // 显示老师姓名和专属祝福
-                document.getElementById("showTeacherName").textContent = matchedName + "老师";
-                document.getElementById("blessingContent").innerHTML = teacherBlessings[matchedName];
-                // 隐藏错误提示
-                document.getElementById("errorTip").style.display = "none";
-                
-                // 触发烟花特效
-                fireworks.createFirework(
-                    window.innerWidth / 2,
-                    window.innerHeight / 2
-                );
-            } else {
-                // 显示错误提示（带抖动动画）
-                document.getElementById("errorTip").style.display = "block";
-                // 重置动画
-                setTimeout(() => {
-                    document.getElementById("errorTip").style.animation = "none";
-                    setTimeout(() => {
-                        document.getElementById("errorTip").style.animation = "shake 0.5s ease";
-                    }, 10);
-                }, 500);
-            }
-        }
+    // 跨天清零
+    const stats = JSON.parse(localStorage.getItem('visitStats'));
+    const today = new Date().toDateString();
+    if (stats.lastDate !== today) {
+        stats.todayVisit = 0;
+        stats.todayFlow = 0;
+        stats.lastDate = today;
+        localStorage.setItem('visitStats', JSON.stringify(stats));
+    }
+}
 
-        // 返回登录页面
-        function backToLogin() {
-            // 隐藏拜年页，显示登录页
-            document.getElementById("newyearPage").style.display = "none";
-            document.getElementById("loginPage").style.display = "block";
-            // 清空输入框
-            document.getElementById("teacherName").value = "";
-            // 隐藏错误提示
-            document.getElementById("errorTip").style.display = "none";
-        }
+function addVisitAndFlow(teacherName) {
+    initStats();
+    const stats = JSON.parse(localStorage.getItem('visitStats'));
+    const logs = JSON.parse(localStorage.getItem('teacherLogs'));
 
-        // 按回车键也能领取祝福
-        document.getElementById("teacherName").addEventListener("keydown", function(e) {
-            if (e.key === "Enter") {
-                checkLogin();
-            }
-        });
-    </script>
+    stats.totalVisit++;
+    stats.todayVisit++;
+
+    const addTotal = (Math.random() * 0.2 + 0.15).toFixed(2) * 1;
+    const addToday = (Math.random() * 0.2 + 0.15).toFixed(2) * 1;
+    stats.totalFlow = (stats.totalFlow || 0) + addTotal;
+    stats.todayFlow = (stats.todayFlow || 0) + addToday;
+
+    localStorage.setItem('visitStats', JSON.stringify(stats));
+
+    const idx = logs.findIndex(t => t.name === teacherName);
+    if (idx !== -1) {
+        logs[idx].count++;
+        logs[idx].lastTime = new Date().toLocaleString();
+        localStorage.setItem('teacherLogs', JSON.stringify(logs));
+    }
+}
+
+function renderAdminPage() {
+    const stats = JSON.parse(localStorage.getItem('visitStats'));
+    const logs = JSON.parse(localStorage.getItem('teacherLogs'));
+
+    document.getElementById('totalVisit').innerText = stats.totalVisit;
+    document.getElementById('todayVisit').innerText = stats.todayVisit;
+    document.getElementById('totalFlow').innerText = stats.totalFlow.toFixed(2) + ' MB';
+    document.getElementById('todayFlow').innerText = stats.todayFlow.toFixed(2) + ' MB';
+
+    const tbody = document.getElementById('teacherStatsBody');
+    tbody.innerHTML = '';
+    logs.forEach((t, i) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${i+1}</td>
+            <td>${t.name}</td>
+            <td>${t.subject}</td>
+            <td>${t.count}</td>
+            <td>${t.lastTime}</td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+// -------------------------- 老师祝福 --------------------------
+const teacherBlessings = {
+"王冬冬":`尊敬的王冬冬老师：<br><br>策马扬鞭迎新春，物理乾坤藏妙思！<br>祝您2026马年龙马精神，物理课堂趣意盎然，<br>生活一马平川，事业马到成功，阖家幸福安康！`,
+"陈燕":`尊敬的陈燕老师：<br><br>笔走龙蛇书锦绣，马踏春风品文香！<br>祝您2026马年神采飞扬，语文课堂墨香四溢，<br>日子鲜衣怒马，万事顺心如意，岁岁皆有欢喜！`,
+"朱辉":`尊敬的朱辉老师：<br><br>数智策马启新程，加减乘除绘华章！<br>祝您2026马年一马当先，数学课堂妙趣横生，<br>生活龙马奔腾，福气万马奔腾，安康常伴左右！`,
+"皮霓":`尊敬的皮霓老师：<br><br>骏马迎春添锦绣，匠心育人谱新篇！<br>祝您2026马年策马奔腾，工作顺心顺意，<br>生活鲜妍明媚，福气马不停蹄，万事皆得圆满！`,
+"徐曼":`尊敬的徐曼老师：<br><br>青春如马踏春来，化育英才绽芳华！<br>祝您2026马年鲜衣怒马，化学课堂精彩纷呈，<br>生活朝气蓬勃，好运一骑绝尘，岁岁青春靓丽！`,
+"乔延":`尊敬的乔延老师：<br><br>策马回眸观史海，春风化雨育新人！<br>祝您2026马年马壮人强，历史课堂鉴古知今，<br>生活喜乐常伴，前程一马平川，万事称心如意！`,
+"曾海芳":`尊敬的曾海芳老师：<br><br>马踏祥云传正道，芳馨育人守初心！<br>祝您2026马年福马安康，道法课堂明德启智，<br>生活温馨美满，工作得心应手，阖家幸福无忧！`,
+"陈龙":`尊敬的陈龙老师：<br><br>龙骧马跃展英姿，德育体育双育人！<br>祝您2026马年龙马呈祥，赛场课堂皆展风采，<br>生活龙马精神，福气源源不断，万事马到功成！`,
+"刘俊夫":`尊敬的刘俊夫老师：<br><br>骏马扬蹄奔数字，科创逐梦育英才！<br>祝您2026马年策马前行，信息课堂智启未来，<br>生活意气风发，好运策马加鞭，岁岁平安喜乐！`
+};
+const validTeachers = Object.keys(teacherBlessings);
+
+// -------------------------- 页面切换 --------------------------
+function showNormalLogin(){hideAll();document.getElementById('loginPage').style.display='block';}
+function showAdminLogin(){hideAll();document.getElementById('adminLoginPage').style.display='block';}
+function backToEntrance(){hideAll();document.getElementById('entrancePage').style.display='block';}
+function backToLogin(){hideAll();document.getElementById('loginPage').style.display='block';document.getElementById('teacherName').value='';document.getElementById('errorTip').style.display='none';}
+function logoutAdmin(){backToEntrance();}
+function hideAll(){
+    document.getElementById('entrancePage').style.display='none';
+    document.getElementById('loginPage').style.display='none';
+    document.getElementById('adminLoginPage').style.display='none';
+    document.getElementById('newyearPage').style.display='none';
+    document.getElementById('adminPage').style.display='none';
+}
+
+// -------------------------- 普通登录 --------------------------
+function checkLogin(){
+    const input=document.getElementById('teacherName').value.trim();
+    const ok=validTeachers.find(n=>n===input);
+    if(ok){
+        addVisitAndFlow(ok);
+        document.getElementById('loginPage').style.display='none';
+        document.getElementById('newyearPage').style.display='block';
+        document.getElementById('showTeacherName').innerText=ok+'老师';
+        document.getElementById('blessingContent').innerHTML=teacherBlessings[ok];
+        fw.createFirework(window.innerWidth/2,window.innerHeight/2);
+    }else{
+        document.getElementById('errorTip').style.display='block';
+    }
+}
+
+// -------------------------- 管理员登录 --------------------------
+function checkAdminLogin(){
+    const user=document.getElementById('adminName').value.trim();
+    const pwd=document.getElementById('adminPwd').value.trim();
+    if(user==='Administor'&&pwd==='12345678@'){
+        hideAll();
+        renderAdminPage();
+        document.getElementById('adminPage').style.display='block';
+    }else{
+        document.getElementById('adminErrorTip').style.display='block';
+    }
+}
+
+document.getElementById('teacherName').addEventListener('keydown',e=>{if(e.key==='Enter')checkLogin();});
+document.getElementById('adminPwd').addEventListener('keydown',e=>{if(e.key==='Enter')checkAdminLogin();});
+
+// 初始化
+initStats();
+</script>
 </body>
 </html>
