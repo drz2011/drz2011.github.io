@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专属拜年网站 - 登录</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "微软雅黑", "宋体", sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        /* 登录容器样式 */
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .login-container h1 {
+            color: #e63946;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        
+        .input-box {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .input-box label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        .input-box input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .input-box input:focus {
+            outline: none;
+            border-color: #e63946;
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: #e63946;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .login-btn:hover {
+            background: #d62828;
+        }
+        
+        .error-tip {
+            color: #e63946;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        /* 拜年页面样式 */
+        .newyear-page {
+            display: none;
+            background: white;
+            padding: 50px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .newyear-page h1 {
+            color: #e63946;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+        
+        .newyear-page .username {
+            color: #f77f00;
+            font-weight: bold;
+        }
+        
+        .newyear-content {
+            margin: 30px 0;
+            font-size: 20px;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .fireworks {
+            font-size: 50px;
+            margin: 20px 0;
+        }
+        
+        .back-btn {
+            padding: 10px 20px;
+            background: #457b9d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .back-btn:hover {
+            background: #1d3557;
+        }
+    </style>
+</head>
+<body>
+    <!-- 登录界面 -->
+    <div class="login-container" id="loginPage">
+        <h1>新春快乐 🧧</h1>
+        <div class="input-box">
+            <label for="username">请输入您的账号（1-10）：</label>
+            <input type="text" id="username" placeholder="例如：1 或 5 或 10">
+        </div>
+        <button class="login-btn" onclick="checkLogin()">登录</button>
+        <div class="error-tip" id="errorTip">账号错误！请输入1-10之间的数字</div>
+    </div>
+
+    <!-- 拜年页面（默认隐藏） -->
+    <div class="newyear-page" id="newyearPage">
+        <h1>恭贺新春 🎉</h1>
+        <div class="newyear-content">
+            <p>尊敬的<span class="username" id="showUsername"></span>号用户：</p>
+            <p>祝您新年快乐，龙年大吉！</p>
+            <p>阖家幸福，万事如意，财源广进！</p>
+            <p>身体健康，前程似锦，喜气洋洋！</p>
+        </div>
+        <div class="fireworks">🎆🎇🎆</div>
+        <button class="back-btn" onclick="backToLogin()">返回登录</button>
+    </div>
+
+    <script>
+        // 验证登录并跳转
+        function checkLogin() {
+            // 获取用户输入的账号
+            const username = document.getElementById("username").value.trim();
+            // 定义有效账号列表
+            const validAccounts = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+            
+            // 验证账号是否有效
+            if (validAccounts.includes(username)) {
+                // 隐藏登录页，显示拜年页
+                document.getElementById("loginPage").style.display = "none";
+                document.getElementById("newyearPage").style.display = "block";
+                // 显示当前登录的用户名
+                document.getElementById("showUsername").textContent = username;
+                // 隐藏错误提示
+                document.getElementById("errorTip").style.display = "none";
+            } else {
+                // 显示错误提示
+                document.getElementById("errorTip").style.display = "block";
+            }
+        }
+
+        // 返回登录页面
+        function backToLogin() {
+            // 隐藏拜年页，显示登录页
+            document.getElementById("newyearPage").style.display = "none";
+            document.getElementById("loginPage").style.display = "block";
+            // 清空输入框
+            document.getElementById("username").value = "";
+            // 隐藏错误提示
+            document.getElementById("errorTip").style.display = "none";
+        }
+
+        // 按回车键也能登录
+        document.getElementById("username").addEventListener("keydown", function(e) {
+            if (e.key === "Enter") {
+                checkLogin();
+            }
+        });
+    </script>
+</body>
+</html>
