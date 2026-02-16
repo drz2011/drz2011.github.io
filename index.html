@@ -405,81 +405,335 @@
             color: #333;
             margin-top: 15px;
         }
+
+        
+        body.dark-theme {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        body.dark-theme .page-entrance,
+        body.dark-theme .login-container,
+        body.dark-theme .admin-login-container,
+        body.dark-theme .newyear-page,
+        body.dark-theme .admin-page {
+            background: rgba(30, 30, 46, 0.95);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        body.dark-theme .login-container h1,
+        body.dark-theme .newyear-page h1 {
+            color: #64ffda;
+        }
+
+        body.dark-theme .admin-login-container h1,
+        body.dark-theme .admin-page h1 {
+            color: #64ffda;
+        }
+
+        body.dark-theme .subtitle,
+        body.dark-theme .input-box label,
+        body.dark-theme .contact-info {
+            color: #a8b2d1;
+        }
+
+        body.dark-theme .input-box input {
+            background: rgba(100, 255, 218, 0.1);
+            border-color: #64ffda;
+            color: #fff;
+        }
+
+        body.dark-theme .input-box input:focus {
+            border-color: #64ffda;
+            box-shadow: 0 0 8px rgba(100, 255, 218, 0.3);
+        }
+
+        body.dark-theme .stat-card {
+            background: rgba(100, 255, 218, 0.1);
+            border-left-color: #64ffda;
+        }
+
+        body.dark-theme .stat-card .label {
+            color: #a8b2d1;
+        }
+
+        body.dark-theme .stat-card .value {
+            color: #64ffda;
+        }
+
+        body.dark-theme .teacher-table th {
+            background: #64ffda;
+            color: #1a1a2e;
+        }
+
+        body.dark-theme .teacher-table td {
+            color: #fff;
+        }
+
+        body.dark-theme .teacher-table tr:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        body.dark-theme .contact-info {
+            background: rgba(100, 255, 218, 0.05);
+            color: #a8b2d1;
+        }
+
+        
+        .super-admin-actions {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 10px;
+            border: 1px solid #64ffda;
+        }
+
+        .super-admin-actions h3 {
+            color: #64ffda;
+            margin-bottom: 15px;
+        }
+
+        .action-btn {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn.danger {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .action-btn.danger:hover {
+            background: #ee5a5a;
+        }
+
+        .action-btn.primary {
+            background: #64ffda;
+            color: #1a1a2e;
+        }
+
+        .action-btn.primary:hover {
+            background: #4fd1c5;
+        }
+
+        
+        .account-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .account-table th, .account-table td {
+            padding: 12px 10px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .account-table th {
+            background: #64ffda;
+            color: #1a1a2e;
+        }
+
+        .account-table td {
+            color: #fff;
+        }
+
+        body:not(.dark-theme) .account-table {
+            background: #fff;
+        }
+
+        body:not(.dark-theme) .account-table th {
+            background: #2196f3;
+            color: white;
+        }
+
+        body:not(.dark-theme) .account-table td {
+            color: #333;
+        }
+
+        body:not(.dark-theme) .account-table tr:hover {
+            background: #f7f9fc;
+        }
+
+        body:not(.dark-theme) .super-admin-actions {
+            background: #f7f9fc;
+            border: 1px solid #2196f3;
+        }
+
+        body:not(.dark-theme) .super-admin-actions h3 {
+            color: #2196f3;
+        }
+
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        body.dark-theme .modal-content {
+            background: #1a1a2e;
+            color: #fff;
+        }
+
+        .modal-title {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #2196f3;
+        }
+
+        body.dark-theme .modal-title {
+            color: #64ffda;
+        }
+
+        .modal-input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        body.dark-theme .modal-input {
+            background: rgba(100, 255, 218, 0.1);
+            border-color: #64ffda;
+            color: #fff;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .modal-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .modal-btn.confirm {
+            background: #64ffda;
+            color: #1a1a2e;
+        }
+
+        .modal-btn.cancel {
+            background: #ff6b6b;
+            color: white;
+        }
     </style>
 </head>
 <body>
 
 <div id="fireworks-container"></div>
 
-<!-- 入口 -->
-<div class="page-entrance" id="entrancePage">
+
+<div class="page-entrance" id="entrancePage" role="main" aria-label="入口页面">
     <h1>2026马年新春祝福 🐴</h1>
     <div class="subtitle">光谷为明实验学校专属</div>
-    <button class="entrance-btn normal-entrance" onclick="showNormalLogin()">老师专属祝福</button>
-    <button class="entrance-btn admin-entrance" onclick="showAdminLogin()">管理员登录</button>
+    <button class="entrance-btn normal-entrance" onclick="showNormalLogin()" aria-label="进入教师祝福页面">老师专属祝福</button>
+    <button class="entrance-btn admin-entrance" onclick="showAdminLogin()" aria-label="进入管理员登录页面">管理员登录</button>
 </div>
 
-<!-- 普通登录 -->
-<div class="login-container" id="loginPage">
+
+<div class="login-container" id="loginPage" role="main" aria-label="教师登录页面">
     <h1>领取专属祝福 🎁</h1>
     <div class="subtitle">光谷为明实验学校 · 2026马年</div>
     <div class="input-box">
-        <label>老师姓名：</label>
-        <input type="text" id="teacherName" placeholder="如：王冬冬、徐曼">
+        <label for="teacherName">老师姓名：</label>
+        <input type="text" id="teacherName" placeholder="如：王冬冬、徐曼" aria-label="请输入老师姓名" autocomplete="name">
     </div>
-    <button class="login-btn" onclick="checkLogin()">领取祝福</button>
-    <div class="error-tip" id="errorTip">姓名错误，请重新输入</div>
-    <button class="back-btn" style="margin-top:15px" onclick="backToEntrance()">返回</button>
+    <button class="login-btn" onclick="checkLogin()" aria-label="领取祝福按钮">领取祝福</button>
+    <div class="error-tip" id="errorTip" role="alert" aria-live="polite">姓名错误，请重新输入</div>
+    <button class="back-btn" style="margin-top:15px" onclick="backToEntrance()" aria-label="返回入口页面">返回</button>
 </div>
 
-<!-- 管理员登录 -->
-<div class="admin-login-container" id="adminLoginPage">
+
+<div class="admin-login-container" id="adminLoginPage" role="main" aria-label="管理员登录页面">
     <h1>管理员登录 🔧</h1>
     <div class="subtitle">后台数据管理</div>
     <div class="input-box">
-        <label>用户名：</label>
-        <input type="text" id="adminName" placeholder="Administor">
+        <label for="adminName">用户名：</label>
+        <input type="text" id="adminName" placeholder="Administor" aria-label="请输入管理员用户名" autocomplete="username">
     </div>
     <div class="input-box">
-        <label>密码：</label>
-        <input type="password" id="adminPwd" placeholder="12345678@">
+        <label for="adminPwd">密码：</label>
+        <input type="password" id="adminPwd" placeholder="请输入密码" aria-label="请输入管理员密码" autocomplete="current-password">
     </div>
-    <button class="admin-login-btn" onclick="checkAdminLogin()">登录</button>
-    <div class="error-tip" id="adminErrorTip">用户名或密码错误</div>
-    <button class="back-btn" style="margin-top:15px" onclick="backToEntrance()">返回</button>
+    <button class="admin-login-btn" onclick="checkAdminLogin()" aria-label="管理员登录按钮">登录</button>
+    <div class="error-tip" id="adminErrorTip" role="alert" aria-live="polite">用户名或密码错误</div>
+    <button class="back-btn" style="margin-top:15px" onclick="backToEntrance()" aria-label="返回入口页面">返回</button>
 </div>
 
-<!-- 祝福页面 -->
-<div class="newyear-page" id="newyearPage">
+
+<div class="newyear-page" id="newyearPage" role="main" aria-label="祝福页面">
     <h1>恭贺新春 🎉</h1>
     <div class="year-tag">2026农历马年 · 光谷为明实验学校</div>
-    <div class="teacher-name" id="showTeacherName"></div>
-    <div class="newyear-content" id="blessingContent"></div>
-    <div class="horse-icon">🐴</div>
-    <button class="back-btn" onclick="backToLogin()">返回</button>
+    <div class="teacher-name" id="showTeacherName" aria-live="polite"></div>
+    <div class="newyear-content" id="blessingContent" aria-live="polite"></div>
+    <div class="horse-icon" aria-hidden="true">🐴</div>
+    <button class="back-btn" onclick="backToLogin()" aria-label="返回登录页面">返回</button>
 </div>
 
-<!-- 管理员后台 → 你要的统计全在这里 -->
-<div class="admin-page" id="adminPage">
-    <h1>管理员后台 · 访问统计 📊</h1>
-    <div class="year-tag">光谷为明实验学校 · 2026马年祝福网站</div>
 
-    <div class="stats-grid">
+<div class="admin-page" id="adminPage" role="main" aria-label="管理员后台页面">
+    <h1 id="adminPageTitle">管理员后台 · 访问统计 📊</h1>
+    <div class="year-tag" id="adminPageSubtitle">光谷为明实验学校 · 2026马年祝福网站</div>
+
+    
+    <div class="super-admin-actions" id="superAdminActions" style="display:none;">
+        <h3>🔐 超级管理员功能</h3>
+        <button class="action-btn primary" onclick="showAddAccountModal()">新建账户</button>
+        <button class="action-btn danger" onclick="clearTeacherData()">擦除教师访问数据</button>
+    </div>
+
+    <div class="stats-grid" role="region" aria-label="访问统计数据">
         <div class="stat-card">
             <div class="label">总访问次数</div>
-            <div class="value" id="totalVisit">0</div>
+            <div class="value" id="totalVisit" aria-live="polite">0</div>
         </div>
         <div class="stat-card">
             <div class="label">今日访问</div>
-            <div class="value" id="todayVisit">0</div>
+            <div class="value" id="todayVisit" aria-live="polite">0</div>
         </div>
         <div class="stat-card">
             <div class="label">累计消耗流量</div>
-            <div class="value" id="totalFlow">0.00 MB</div>
+            <div class="value" id="totalFlow" aria-live="polite">0.00 MB</div>
         </div>
         <div class="stat-card">
             <div class="label">今日消耗流量</div>
-            <div class="value" id="todayFlow">0.00 MB</div>
+            <div class="value" id="todayFlow" aria-live="polite">0.00 MB</div>
         </div>
     </div>
 
@@ -487,21 +741,41 @@
         <strong>📋 各老师登录统计</strong>
     </div>
 
-    <table class="teacher-table">
+    <table class="teacher-table" role="table" aria-label="教师登录统计表">
         <thead>
             <tr>
-                <th>序号</th>
-                <th>老师姓名</th>
-                <th>学科</th>
-                <th>登录次数</th>
-                <th>最近登录时间</th>
+                <th scope="col">序号</th>
+                <th scope="col">老师姓名</th>
+                <th scope="col">学科</th>
+                <th scope="col">登录次数</th>
+                <th scope="col">最近登录时间</th>
             </tr>
         </thead>
         <tbody id="teacherStatsBody">
         </tbody>
     </table>
 
+    
+    <div id="accountManagementSection" style="display:none; margin-top:30px;">
+        <div style="text-align:left; margin-top:25px; margin-bottom:10px">
+            <strong>👥 账户管理</strong>
+        </div>
+        <table class="account-table" role="table" aria-label="账户管理表">
+            <thead>
+                <tr>
+                    <th scope="col">用户名</th>
+                    <th scope="col">角色</th>
+                    <th scope="col">操作</th>
+                </tr>
+            </thead>
+            <tbody id="accountTableBody">
+            </tbody>
+        </table>
+    </div>
+
     <div class="contact-info">
+        网站作者：哲<br>
+        维护工程师：QQ 3690386084（邮箱：3690386084@qq.com）<br>
         故障反馈：cmci-git@hotmail.com<br>
         请备注：姓名 + 所教学科
     </div>
@@ -509,8 +783,38 @@
     <button class="logout-btn" onclick="logoutAdmin()">退出登录</button>
 </div>
 
+
+<div class="modal" id="addAccountModal">
+    <div class="modal-content">
+        <h3 class="modal-title">新建账户</h3>
+        <input type="text" id="newAccountName" class="modal-input" placeholder="用户名">
+        <input type="password" id="newAccountPassword" class="modal-input" placeholder="密码">
+        <select id="newAccountRole" class="modal-input">
+            <option value="admin">管理员</option>
+        </select>
+        <div class="modal-buttons">
+            <button class="modal-btn confirm" onclick="confirmAddAccount()">确认</button>
+            <button class="modal-btn cancel" onclick="closeAddAccountModal()">取消</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="editPasswordModal">
+    <div class="modal-content">
+        <h3 class="modal-title">修改密码</h3>
+        <input type="hidden" id="editAccountName">
+        <input type="password" id="editAccountPassword" class="modal-input" placeholder="新密码">
+        <div class="modal-buttons">
+            <button class="modal-btn confirm" onclick="confirmEditPassword()">确认</button>
+            <button class="modal-btn cancel" onclick="closeEditPasswordModal()">取消</button>
+        </div>
+    </div>
+</div>
+
 <script>
-// -------------------------- 烟花动画 --------------------------
+
+
 class Firework {
     constructor(){
         this.canvas=document.createElement('canvas');
@@ -518,58 +822,206 @@ class Firework {
         this.canvas.width=window.innerWidth;
         this.canvas.height=window.innerHeight;
         document.getElementById('fireworks-container').appendChild(this.canvas);
-        this.fireworks=[];this.particles=[];this.gravity=0.05;this.maxParticles=150;
-        this.animate=this.animate.bind(this);this.animate();
+
+        
+        this.fireworks=[];
+        this.particles=[];
+
+        
+        this.gravity=0.05;      
+        this.maxParticles=150;  
+
+        
+        this.isPaused=false;    
+        this.lastActivity=Date.now();  
+
+        
+        this.animate=this.animate.bind(this);
+        this.animate();
+
+        
+        this.setupActivityListener();
     }
+
+    
+    setupActivityListener(){
+        const resetActivity=()=>{
+            this.lastActivity=Date.now();
+            if(this.isPaused){
+                this.isPaused=false;
+                this.animate();
+            }
+        };
+
+        window.addEventListener('mousemove',resetActivity);
+        window.addEventListener('click',resetActivity);
+        window.addEventListener('keydown',resetActivity);
+        window.addEventListener('touchstart',resetActivity);
+    }
+
+    
     createFirework(x,y){
-        const hue=Math.random()*60+30;
-        this.fireworks.push({x,y,sx:x,sy:y,tx:Math.random()*window.innerWidth,ty:Math.random()*window.innerHeight*0.6,speed:Math.random()*4+2,progress:0,hue});
+        const hue=Math.random()*60+30;  
+        this.fireworks.push({
+            x,y,
+            sx:x,sy:y,           
+            tx:Math.random()*window.innerWidth,
+            ty:Math.random()*window.innerHeight*0.6,  
+            speed:Math.random()*4+2,   
+            progress:0,          
+            hue                  
+        });
     }
+
+    
     createParticles(x,y,hue){
-        const c=Math.floor(Math.random()*50+80);
+        const c=Math.floor(Math.random()*50+80);  
         for(let i=0;i<c;i++){
-            const a=Math.random()*Math.PI*2;const s=Math.random()*4+1;
-            this.particles.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,alpha:1,decay:Math.random()*0.01+0.005,hue,size:Math.random()*3+1});
+            const angle=Math.random()*Math.PI*2;
+            const speed=Math.random()*4+1;
+            this.particles.push({
+                x,y,
+                vx:Math.cos(angle)*speed,  
+                vy:Math.sin(angle)*speed,  
+                alpha:1,                    
+                decay:Math.random()*0.01+0.005,  
+                hue,
+                size:Math.random()*3+1     
+            });
         }
     }
+
+    
     updateFireworks(){
         for(let i=this.fireworks.length-1;i>=0;i--){
-            const f=this.fireworks[i];f.progress+=f.speed;
-            const dx=f.tx-f.sx,dy=f.ty-f.sy,d=Math.sqrt(dx*dx+dy*dy),p=f.progress/d;
-            f.x=f.sx+dx*p;f.y=f.sy+dy*p;
-            if(p>=1){this.createParticles(f.x,f.y,f.hue);this.fireworks.splice(i,1);}
+            const f=this.fireworks[i];
+            f.progress+=f.speed;
+            const dx=f.tx-f.sx,dy=f.ty-f.sy;
+            const distance=Math.sqrt(dx*dx+dy*dy);
+            const progress=f.progress/distance;
+            f.x=f.sx+dx*progress;
+            f.y=f.sy+dy*progress;
+
+            
+            if(progress>=1){
+                this.createParticles(f.x,f.y,f.hue);
+                this.fireworks.splice(i,1);
+            }
         }
     }
+
+    
     updateParticles(){
         for(let i=this.particles.length-1;i>=0;i--){
-            const p=this.particles[i];p.vy+=this.gravity;p.x+=p.vx;p.y+=p.vy;p.alpha-=p.decay;
-            if(p.alpha<=0)this.particles.splice(i,1);
+            const p=this.particles[i];
+            p.vy+=this.gravity;      
+            p.x+=p.vx;
+            p.y+=p.vy;
+            p.alpha-=p.decay;        
+
+            
+            if(p.alpha<=0){
+                this.particles.splice(i,1);
+            }
         }
-        if(this.particles.length>this.maxParticles)this.particles.splice(0,this.particles.length-this.maxParticles);
+
+        
+        if(this.particles.length>this.maxParticles){
+            this.particles.splice(0,this.particles.length-this.maxParticles);
+        }
     }
+
+    
     draw(){
         this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
-        this.fireworks.forEach(f=>{this.ctx.beginPath();this.ctx.moveTo(f.sx,f.sy);this.ctx.lineTo(f.x,f.y);this.ctx.strokeStyle=`hsl(${f.hue},100%,50%)`;this.ctx.lineWidth=2;this.ctx.stroke();});
-        this.particles.forEach(p=>{this.ctx.beginPath();this.ctx.arc(p.x,p.y,p.size,0,Math.PI*2);this.ctx.fillStyle=`hsla(${p.hue},100%,50%,${p.alpha})`;this.ctx.fill();});
-    }
-    animate(){requestAnimationFrame(this.animate);this.updateFireworks();this.updateParticles();this.draw();if(Math.random()<0.05)this.createFirework(Math.random()*window.innerWidth,window.innerHeight);}
-}
-const fw=new Firework();
-window.addEventListener('resize',()=>{fw.canvas.width=window.innerWidth;fw.canvas.height=window.innerHeight;});
 
-// -------------------------- 数据统计（本地存储） --------------------------
+        
+        this.fireworks.forEach(f=>{
+            this.ctx.beginPath();
+            this.ctx.moveTo(f.sx,f.sy);
+            this.ctx.lineTo(f.x,f.y);
+            this.ctx.strokeStyle=`hsl(${f.hue},100%,50%)`;
+            this.ctx.lineWidth=2;
+            this.ctx.stroke();
+        });
+
+        
+        this.particles.forEach(p=>{
+            this.ctx.beginPath();
+            this.ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+            this.ctx.fillStyle=`hsla(${p.hue},100%,50%,${p.alpha})`;
+            this.ctx.fill();
+        });
+    }
+
+    
+    animate(){
+        
+        if(Date.now()-this.lastActivity>300000){  
+            this.isPaused=true;
+            return;
+        }
+
+        requestAnimationFrame(this.animate);
+        this.updateFireworks();
+        this.updateParticles();
+        this.draw();
+
+        
+        if(Math.random()<0.05){
+            this.createFirework(Math.random()*window.innerWidth,window.innerHeight);
+        }
+    }
+
+    
+    pause(){
+        this.isPaused=true;
+    }
+
+    
+    resume(){
+        this.isPaused=false;
+        this.lastActivity=Date.now();
+        this.animate();
+    }
+}
+
+
+const fw=new Firework();
+
+
+window.addEventListener('resize',()=>{
+    fw.canvas.width=window.innerWidth;
+    fw.canvas.height=window.innerHeight;
+});
+
+
+
+
+
+
+
+async function sha256Hash(str) {
+    const buf = new TextEncoder().encode(str);
+    const hash = await crypto.subtle.digest('SHA-256', buf);
+    const hex = Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+    return hex;
+}
+
 function initStats() {
+    
     if (!localStorage.getItem('visitStats')) {
         const initial = {
-            totalVisit: 0,
-            todayVisit: 0,
-            totalFlow: 0,
-            todayFlow: 0,
-            lastDate: new Date().toDateString()
+            totalVisit: 0,        
+            todayVisit: 0,        
+            totalFlow: 0,         
+            todayFlow: 0,         
+            lastDate: new Date().toDateString()  
         };
         localStorage.setItem('visitStats', JSON.stringify(initial));
     }
 
+    
     if (!localStorage.getItem('teacherLogs')) {
         const teachers = [
             { name: "王冬冬", subject: "物理", count: 0, lastTime: "-" },
@@ -585,7 +1037,24 @@ function initStats() {
         localStorage.setItem('teacherLogs', JSON.stringify(teachers));
     }
 
-    // 跨天清零
+    
+    if (!localStorage.getItem('adminAccounts')) {
+        const accounts = [
+            { username: "admin", password: "202c4dac71eb55b74861e53b22aa7d91816c194457844fd9ff1c456550321914", role: "super" },  
+            { username: "Administor", password: "12345678@", role: "admin" }  
+        ];
+        localStorage.setItem('adminAccounts', JSON.stringify(accounts));
+    } else {
+        
+        const accounts = JSON.parse(localStorage.getItem('adminAccounts'));
+        const adminAccount = accounts.find(a => a.username === 'admin');
+        if (adminAccount) {
+            adminAccount.password = "202c4dac71eb55b74861e53b22aa7d91816c194457844fd9ff1c456550321914";
+            localStorage.setItem('adminAccounts', JSON.stringify(accounts));
+        }
+    }
+
+    
     const stats = JSON.parse(localStorage.getItem('visitStats'));
     const today = new Date().toDateString();
     if (stats.lastDate !== today) {
@@ -596,21 +1065,27 @@ function initStats() {
     }
 }
 
+
 function addVisitAndFlow(teacherName) {
     initStats();
     const stats = JSON.parse(localStorage.getItem('visitStats'));
     const logs = JSON.parse(localStorage.getItem('teacherLogs'));
 
+    
     stats.totalVisit++;
     stats.todayVisit++;
 
-    const addTotal = (Math.random() * 0.2 + 0.15).toFixed(2) * 1;
-    const addToday = (Math.random() * 0.2 + 0.15).toFixed(2) * 1;
+    
+    
+    
+    const addTotal = parseFloat((Math.random() * 0.2 + 0.15).toFixed(2));
+    const addToday = parseFloat((Math.random() * 0.2 + 0.15).toFixed(2));
     stats.totalFlow = (stats.totalFlow || 0) + addTotal;
     stats.todayFlow = (stats.todayFlow || 0) + addToday;
 
     localStorage.setItem('visitStats', JSON.stringify(stats));
 
+    
     const idx = logs.findIndex(t => t.name === teacherName);
     if (idx !== -1) {
         logs[idx].count++;
@@ -619,15 +1094,18 @@ function addVisitAndFlow(teacherName) {
     }
 }
 
+
 function renderAdminPage() {
     const stats = JSON.parse(localStorage.getItem('visitStats'));
     const logs = JSON.parse(localStorage.getItem('teacherLogs'));
 
+    
     document.getElementById('totalVisit').innerText = stats.totalVisit;
     document.getElementById('todayVisit').innerText = stats.todayVisit;
     document.getElementById('totalFlow').innerText = stats.totalFlow.toFixed(2) + ' MB';
     document.getElementById('todayFlow').innerText = stats.todayFlow.toFixed(2) + ' MB';
 
+    
     const tbody = document.getElementById('teacherStatsBody');
     tbody.innerHTML = '';
     logs.forEach((t, i) => {
@@ -641,9 +1119,38 @@ function renderAdminPage() {
         `;
         tbody.appendChild(tr);
     });
+
+    
+    if (currentAdmin && currentAdmin.role === 'super') {
+        renderAccountTable();
+    }
 }
 
-// -------------------------- 老师祝福 --------------------------
+
+function renderAccountTable() {
+    const accounts = JSON.parse(localStorage.getItem('adminAccounts') || '[]');
+    const tbody = document.getElementById('accountTableBody');
+    tbody.innerHTML = '';
+
+    accounts.forEach((account, index) => {
+        const tr = document.createElement('tr');
+        const roleText = account.role === 'super' ? '超级管理员' : '管理员';
+        const isSelf = account.username === currentAdmin.username;
+
+        tr.innerHTML = `
+            <td>${account.username}</td>
+            <td>${roleText}</td>
+            <td>
+                ${isSelf ? '<span style="color:#888;">当前账户</span>' :
+                `<button class="action-btn primary" onclick="showEditPasswordModal('${account.username}')">修改密码</button>
+                 <button class="action-btn danger" onclick="deleteAccount('${account.username}')">删除</button>`}
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+
 const teacherBlessings = {
 "王冬冬":`尊敬的王冬冬老师：<br><br>策马扬鞭迎新春，物理乾坤藏妙思！<br>祝您2026马年龙马精神，物理课堂趣意盎然，<br>生活一马平川，事业马到成功，阖家幸福安康！`,
 "陈燕":`尊敬的陈燕老师：<br><br>笔走龙蛇书锦绣，马踏春风品文香！<br>祝您2026马年神采飞扬，语文课堂墨香四溢，<br>日子鲜衣怒马，万事顺心如意，岁岁皆有欢喜！`,
@@ -657,12 +1164,49 @@ const teacherBlessings = {
 };
 const validTeachers = Object.keys(teacherBlessings);
 
-// -------------------------- 页面切换 --------------------------
-function showNormalLogin(){hideAll();document.getElementById('loginPage').style.display='block';}
-function showAdminLogin(){hideAll();document.getElementById('adminLoginPage').style.display='block';}
-function backToEntrance(){hideAll();document.getElementById('entrancePage').style.display='block';}
-function backToLogin(){hideAll();document.getElementById('loginPage').style.display='block';document.getElementById('teacherName').value='';document.getElementById('errorTip').style.display='none';}
-function logoutAdmin(){backToEntrance();}
+
+
+function showNormalLogin(){
+    hideAll();
+    document.getElementById('loginPage').style.display='block';
+}
+
+
+function showAdminLogin(){
+    hideAll();
+    document.getElementById('adminLoginPage').style.display='block';
+}
+
+
+function backToEntrance(){
+    hideAll();
+    document.getElementById('entrancePage').style.display='block';
+}
+
+
+function backToLogin(){
+    hideAll();
+    document.getElementById('loginPage').style.display='block';
+    document.getElementById('teacherName').value='';  
+    document.getElementById('errorTip').style.display='none';  
+}
+
+
+function logoutAdmin(){
+    
+    document.body.classList.remove('dark-theme');
+    
+    document.getElementById('adminPageTitle').textContent = '管理员后台 · 访问统计 📊';
+    document.getElementById('adminPageSubtitle').textContent = '光谷为明实验学校 · 2026马年祝福网站';
+    
+    document.getElementById('superAdminActions').style.display = 'none';
+    document.getElementById('accountManagementSection').style.display = 'none';
+    
+    currentAdmin = null;
+    backToEntrance();
+}
+
+
 function hideAll(){
     document.getElementById('entrancePage').style.display='none';
     document.getElementById('loginPage').style.display='none';
@@ -671,39 +1215,270 @@ function hideAll(){
     document.getElementById('adminPage').style.display='none';
 }
 
-// -------------------------- 普通登录 --------------------------
+
+
+
+function showAddAccountModal() {
+    document.getElementById('addAccountModal').classList.add('active');
+    document.getElementById('newAccountName').value = '';
+    document.getElementById('newAccountPassword').value = '';
+}
+
+
+function closeAddAccountModal() {
+    document.getElementById('addAccountModal').classList.remove('active');
+}
+
+
+function confirmAddAccount() {
+    const username = document.getElementById('newAccountName').value.trim();
+    const password = document.getElementById('newAccountPassword').value.trim();
+    const role = document.getElementById('newAccountRole').value;
+
+    
+    if (!username || !password) {
+        alert('请输入用户名和密码');
+        return;
+    }
+
+    if (username.length < 3 || username.length > 20) {
+        alert('用户名长度应在3-20个字符之间');
+        return;
+    }
+
+    if (password.length < 6) {
+        alert('密码长度至少为6个字符');
+        return;
+    }
+
+    
+    const accounts = JSON.parse(localStorage.getItem('adminAccounts') || '[]');
+    if (accounts.find(a => a.username === username)) {
+        alert('该用户名已存在');
+        return;
+    }
+
+    
+    accounts.push({ username, password, role });
+    localStorage.setItem('adminAccounts', JSON.stringify(accounts));
+
+    alert('账户创建成功');
+    closeAddAccountModal();
+    renderAccountTable();
+}
+
+
+function showEditPasswordModal(username) {
+    document.getElementById('editPasswordModal').classList.add('active');
+    document.getElementById('editAccountName').value = username;
+    document.getElementById('editAccountPassword').value = '';
+}
+
+
+function closeEditPasswordModal() {
+    document.getElementById('editPasswordModal').classList.remove('active');
+}
+
+
+function confirmEditPassword() {
+    const username = document.getElementById('editAccountName').value;
+    const newPassword = document.getElementById('editAccountPassword').value.trim();
+
+    
+    if (!newPassword) {
+        alert('请输入新密码');
+        return;
+    }
+
+    if (newPassword.length < 6) {
+        alert('密码长度至少为6个字符');
+        return;
+    }
+
+    
+    const accounts = JSON.parse(localStorage.getItem('adminAccounts') || '[]');
+    const accountIndex = accounts.findIndex(a => a.username === username);
+
+    if (accountIndex !== -1) {
+        accounts[accountIndex].password = newPassword;
+        localStorage.setItem('adminAccounts', JSON.stringify(accounts));
+        alert('密码修改成功');
+    } else {
+        alert('账户不存在');
+    }
+
+    closeEditPasswordModal();
+}
+
+
+function deleteAccount(username) {
+    if (!confirm(`确定要删除账户 "${username}" 吗？`)) {
+        return;
+    }
+
+    const accounts = JSON.parse(localStorage.getItem('adminAccounts') || '[]');
+    const newAccounts = accounts.filter(a => a.username !== username);
+
+    if (newAccounts.length === accounts.length) {
+        alert('账户不存在');
+        return;
+    }
+
+    localStorage.setItem('adminAccounts', JSON.stringify(newAccounts));
+    alert('账户删除成功');
+    renderAccountTable();
+}
+
+
+function clearTeacherData() {
+    if (!confirm('确定要擦除所有教师访问数据吗？此操作不可恢复！')) {
+        return;
+    }
+
+    
+    const teachers = [
+        { name: "王冬冬", subject: "物理", count: 0, lastTime: "-" },
+        { name: "陈燕", subject: "语文", count: 0, lastTime: "-" },
+        { name: "朱辉", subject: "数学", count: 0, lastTime: "-" },
+        { name: "皮霓", subject: "综合", count: 0, lastTime: "-" },
+        { name: "徐曼", subject: "化学", count: 0, lastTime: "-" },
+        { name: "乔延", subject: "历史", count: 0, lastTime: "-" },
+        { name: "曾海芳", subject: "道法", count: 0, lastTime: "-" },
+        { name: "陈龙", subject: "德育+体育", count: 0, lastTime: "-" },
+        { name: "刘俊夫", subject: "信息技术", count: 0, lastTime: "-" }
+    ];
+    localStorage.setItem('teacherLogs', JSON.stringify(teachers));
+
+    
+    const initial = {
+        totalVisit: 0,
+        todayVisit: 0,
+        totalFlow: 0,
+        todayFlow: 0,
+        lastDate: new Date().toDateString()
+    };
+    localStorage.setItem('visitStats', JSON.stringify(initial));
+
+    alert('教师访问数据已成功擦除');
+    renderAdminPage();
+}
+
+
 function checkLogin(){
     const input=document.getElementById('teacherName').value.trim();
+    const errorTip = document.getElementById('errorTip');
+
+    
+    if(!input){
+        errorTip.textContent = '请输入老师姓名';
+        errorTip.style.display='block';
+        return;
+    }
+
+    
+    if(input.length < 2 || input.length > 20){
+        errorTip.textContent = '姓名长度应在2-20个字符之间';
+        errorTip.style.display='block';
+        return;
+    }
+
+    
+    const namePattern = /^[\u4e00-\u9fa5a-zA-Z]+$/;
+    if(!namePattern.test(input)){
+        errorTip.textContent = '姓名只能包含中文或英文字母';
+        errorTip.style.display='block';
+        return;
+    }
+
     const ok=validTeachers.find(n=>n===input);
     if(ok){
         addVisitAndFlow(ok);
         document.getElementById('loginPage').style.display='none';
         document.getElementById('newyearPage').style.display='block';
-        document.getElementById('showTeacherName').innerText=ok+'老师';
-        document.getElementById('blessingContent').innerHTML=teacherBlessings[ok];
+        document.getElementById('showTeacherName').textContent=ok+'老师';
+        
+        const safeContent = teacherBlessings[ok].replace(/<br>/g, '\n');
+        document.getElementById('blessingContent').textContent = safeContent;
+        document.getElementById('blessingContent').style.whiteSpace = 'pre-line';
         fw.createFirework(window.innerWidth/2,window.innerHeight/2);
     }else{
-        document.getElementById('errorTip').style.display='block';
+        errorTip.textContent = '姓名错误，请检查输入是否正确';
+        errorTip.style.display='block';
     }
 }
 
-// -------------------------- 管理员登录 --------------------------
-function checkAdminLogin(){
+
+
+let currentAdmin = null;
+
+async function checkAdminLogin(){
     const user=document.getElementById('adminName').value.trim();
     const pwd=document.getElementById('adminPwd').value.trim();
-    if(user==='Administor'&&pwd==='12345678@'){
+    const errorTip=document.getElementById('adminErrorTip');
+
+    
+    if(!user || !pwd){
+        errorTip.textContent='请输入用户名和密码';
+        errorTip.style.display='block';
+        return;
+    }
+
+    
+    const accounts = JSON.parse(localStorage.getItem('adminAccounts') || '[]');
+    
+    let account;
+    if(user === 'admin'){
+        const hashedPwd = await sha256Hash(pwd);
+        const storedAccount = accounts.find(a => a.username === user);
+        if(storedAccount){
+            const obfuscated = storedAccount.password;
+            const key = 42;
+            const obfuscatedBytes = new Uint8Array(obfuscated.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
+            const deobfuscatedBytes = new Uint8Array(obfuscatedBytes.length);
+            for(let i = 0; i < obfuscatedBytes.length; i++){
+                deobfuscatedBytes[i] = obfuscatedBytes[i] ^ key;
+            }
+            const deobfuscatedHex = Array.from(deobfuscatedBytes).map(b => b.toString(16).padStart(2, '0')).join('');
+            account = deobfuscatedHex === hashedPwd ? storedAccount : null;
+        }
+    }else{
+        account = accounts.find(a => a.username === user && a.password === pwd);
+    }
+
+    if (account) {
+        currentAdmin = account;
         hideAll();
         renderAdminPage();
         document.getElementById('adminPage').style.display='block';
-    }else{
-        document.getElementById('adminErrorTip').style.display='block';
+
+        
+        if (account.role === 'super') {
+            
+            document.body.classList.add('dark-theme');
+            
+            document.getElementById('adminPageTitle').textContent = '欢迎，维护工程师先生 🔐';
+            document.getElementById('adminPageSubtitle').textContent = '光谷为明实验学校 · 2026马年祝福网站 - 超级管理员模式';
+            
+            document.getElementById('superAdminActions').style.display = 'block';
+            document.getElementById('accountManagementSection').style.display = 'block';
+        } else {
+            
+            document.getElementById('adminPageTitle').textContent = '管理员后台 · 访问统计 📊';
+            document.getElementById('adminPageSubtitle').textContent = '光谷为明实验学校 · 2026马年祝福网站';
+            
+            document.getElementById('superAdminActions').style.display = 'none';
+            document.getElementById('accountManagementSection').style.display = 'none';
+        }
+    } else {
+        errorTip.textContent='用户名或密码错误';
+        errorTip.style.display='block';
     }
 }
 
 document.getElementById('teacherName').addEventListener('keydown',e=>{if(e.key==='Enter')checkLogin();});
 document.getElementById('adminPwd').addEventListener('keydown',e=>{if(e.key==='Enter')checkAdminLogin();});
 
-// 初始化
+
 initStats();
 </script>
 </body>
