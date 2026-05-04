@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2023级9班 - 毕业纪念网站</title>
+    <title>毕业纪念册 - 完整画册</title>
     <style>
         * {
             margin: 0;
@@ -13,289 +13,141 @@
         }
 
         body {
-            background-color: #f7f9fc;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* 导航栏 */
-        header {
-            background: linear-gradient(135deg, #4e8cff, #72b3ff);
+            background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
             color: white;
-            padding: 1.2rem;
+            padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
 
-        .nav {
-            margin-top: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+        .title {
+            font-size: 28px;
+            margin: 20px 0;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(173, 216, 230, 0.8);
         }
 
-        .nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            transition: 0.3s;
+        .section {
+            margin: 50px 0;
         }
 
-        .nav a:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        /* 容器 */
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        /* 板块标题 */
         .section-title {
-            text-align: center;
-            margin: 3rem 0 2rem;
-            font-size: 1.8rem;
-            color: #2c3e50;
-            position: relative;
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #ffdf80;
         }
 
-        .section-title::after {
-            content: "";
-            width: 80px;
-            height: 4px;
-            background: #4e8cff;
-            display: block;
-            margin: 0.5rem auto;
-            border-radius: 2px;
-        }
-
-        /* 老师卡片 */
-        .teachers {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .teacher-card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
-
-        .teacher-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .teacher-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: #e3f2fd;
-            margin: 0 auto 1rem;
+        .gallery {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             justify-content: center;
-            font-size: 2rem;
-            color: #4e8cff;
+            gap: 15px;
         }
 
-        /* 同学头像网格 }
-
-        /* 同学头像网格 */
-        .students {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 1rem;
-        }
-
-        .student-btn {
-            background: white;
-            border: none;
-            border-radius: 12px;
-            padding: 1rem;
+        .gallery img {
+            width: 180px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            transition: 0.3s;
+            transition: transform 0.3s ease;
         }
 
-        .student-btn:hover {
-            transform: scale(1.05);
-            background: #eef5ff;
+        .gallery img:hover {
+            transform: scale(1.1);
         }
 
-        .student-avatar {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: #e3f2fd;
-            margin: 0 auto 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: #4e8cff;
-        }
-
-        /* 音视频区域 */
-        .media-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .media-item {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
-        }
-
-        .media-item video,
-        .media-item audio {
+        /* 点击放大 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            display: block;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
         }
 
-        .media-info {
-            padding: 1rem;
-            text-align: center;
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 3px solid white;
         }
 
-        /* 页脚 */
-        footer {
-            background: #2c3e50;
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
             color: white;
-            text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 4rem;
+            font-size: 40px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-    <!-- 头部导航 -->
-    <header>
-        <h1>🎓 2023级9班 · 毕业纪念网站</h1>
-        <div class="nav">
-            <a href="#teachers">老师主页</a>
-            <a href="#students">同学主页</a>
-            <a href="#media">音视频纪念</a>
-        </div>
-    </header>
+    <h1 class="title">青春纪念册 · 完整电子版</h1>
 
-    <div class="container">
-
-        <!-- 老师主页 -->
-        <h2 class="section-title" id="teachers">👨‍🏫 老师主页</h2>
-        <div class="teachers">
-            <!-- 可无限复制 -->
-            <div class="teacher-card">
-                <div class="teacher-avatar">1</div>
-                <h3>班主任 老师</h3>
-                <p>感谢您三年的陪伴与教导</p>
-            </div>
-            <div class="teacher-card">
-                <div class="teacher-avatar">2</div>
-                <h3>语文 老师</h3>
-                <p>诗词歌赋，人生启蒙</p>
-            </div>
-            <div class="teacher-card">
-                <div class="teacher-avatar">3</div>
-                <h3>数学 老师</h3>
-                <p>逻辑严谨，耐心育人</p>
-            </div>
-            <div class="teacher-card">
-                <div class="teacher-avatar">4</div>
-                <h3>英语 老师</h3>
-                <p>打开世界，看见远方</p>
-            </div>
-        </div>
-
-        <!-- 同学主页（头像按钮式） -->
-        <h2 class="section-title" id="students">👦👧 同学主页</h2>
-        <div class="students">
-            <!-- 头像按钮，可复制1000个 -->
-            <button class="student-btn">
-                <div class="student-avatar">1</div>
-                <span>同学 01</span>
-            </button>
-            <button class="student-btn">
-                <div class="student-avatar">2</div>
-                <span>同学 02</span>
-            </button>
-            <button class="student-btn">
-                <div class="student-avatar">3</div>
-                <span>同学 03</span>
-            </button>
-            <button class="student-btn">
-                <div class="student-avatar">4</div>
-                <span>同学 04</span>
-            </button>
-            <button class="student-btn">
-                <div class="student-avatar">5</div>
-                <span>同学 05</span>
-            </button>
-            <button class="student-btn">
-                <div class="student-avatar">6</div>
-                <span>同学 06</span>
-            </button>
-            <!-- 继续复制即可增加更多同学 -->
-        </div>
-
-        <!-- 音视频纪念区 -->
-        <h2 class="section-title" id="media">🎥 🎵 班级音视频纪念</h2>
-        <div class="media-grid">
-            <!-- 视频文件 -->
-            <div class="media-item">
-                <video controls src="1.mp4"></video>
-                <div class="media-info">视频 1.mp4</div>
-            </div>
-            <div class="media-item">
-                <video controls src="2.mp4"></video>
-                <div class="media-info">视频 2.mp4</div>
-            </div>
-            <div class="media-item">
-                <video controls src="3.mp4"></video>
-                <div class="media-info">视频 3.mp4</div>
-            </div>
-
-            <!-- 音频文件 -->
-            <div class="media-item">
-                <audio controls src="1.mp3"></audio>
-                <div class="media-info">音频 1.mp3</div>
-            </div>
-            <div class="media-item">
-                <audio controls src="2.mp3"></audio>
-                <div class="media-info">音频 2.mp3</div>
-            </div>
-            <div class="media-item">
-                <audio controls src="3.mp3"></audio>
-                <div class="media-info">音频 3.mp3</div>
-            </div>
-
-            <!-- 可无限复制到1000+ -->
-        </div>
-
+    <!-- 封面部分 1-44 张 -->
+    <div class="section">
+        <h2 class="section-title">📘 封面系列（共44页）</h2>
+        <div class="gallery" id="cover"></div>
     </div>
 
-    <!-- 页脚 -->
-    <footer>
-        <h3>2023级9班 · 青春永不散场</h3>
-        <p>毕业快乐 | 前程似锦 | 未来可期</p>
-        <p style="margin-top:1rem; font-size:0.9rem; opacity:0.7">© 2025 毕业纪念网站</p>
-    </footer>
+    <!-- 内页部分 1-44 张 -->
+    <div class="section">
+        <h2 class="section-title">📗 内页系列（共44页）</h2>
+        <div class="gallery" id="inner"></div>
+    </div>
 
+    <!-- 个性页部分 1-44 张 -->
+    <div class="section">
+        <h2 class="section-title">📙 个性页系列（共44页）</h2>
+        <div class="gallery" id="special"></div>
+    </div>
+
+    <!-- 点击放大弹窗 -->
+    <div class="modal" id="modal">
+        <span class="close">&times;</span>
+        <img id="modal-img">
+    </div>
+
+    <script>
+        // 自动生成 1~44 张图片
+        function loadImages(prefix, containerId) {
+            const container = document.getElementById(containerId);
+            for (let i = 1; i <= 44; i++) {
+                const img = document.createElement("img");
+                img.src = `${prefix}_${i}.jpg`;
+                img.alt = `${prefix} 第${i}页`;
+                img.onclick = () => openModal(img.src);
+                container.appendChild(img);
+            }
+        }
+
+        // 加载三个系列图片
+        loadImages("封面_批量发片", "cover");
+        loadImages("内页_批量发片", "inner");
+        loadImages("个性页_批量发片", "special");
+
+        // 放大查看功能
+        const modal = document.getElementById("modal");
+        const modalImg = document.getElementById("modal-img");
+
+        function openModal(src) {
+            modal.style.display = "flex";
+            modalImg.src = src;
+        }
+
+        document.querySelector(".close").onclick = () => {
+            modal.style.display = "none";
+        };
+
+        modal.onclick = (e) => {
+            if (e.target === modal) modal.style.display = "none";
+        };
+    </script>
 </body>
 </html>
