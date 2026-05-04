@@ -12,7 +12,6 @@
             font-family: "PingFang SC","Microsoft YaHei",sans-serif;
         }
 
-        /* 全局青春背景 */
         body {
             background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
             min-height: 100vh;
@@ -20,7 +19,7 @@
             color: #333;
         }
 
-        /* ========== 验证页面 ========== */
+        /* 验证界面 */
         .verify-box {
             position: fixed;
             top: 0;
@@ -80,12 +79,12 @@
             font-size: 14px;
         }
 
-        /* ========== 主内容默认隐藏 ========== */
+        /* 主内容默认隐藏 */
         .content {
             display: none;
         }
 
-        /* ========== 主页面样式 ========== */
+        /* 主页面样式 */
         .header {
             text-align: center;
             margin: 40px 0;
@@ -193,7 +192,7 @@
 
 <body>
 
-<!-- ========== 口号验证页面 ========== -->
+<!-- 验证页面 -->
 <div class="verify-box" id="verifyBox">
     <h2 class="verify-title">2023级九班 · 安全验证</h2>
     <input type="text" id="sloganInput" placeholder="请输入班级口号" autocomplete="off">
@@ -201,29 +200,17 @@
     <div id="tip"></div>
 </div>
 
-<!-- ========== 主内容（默认隐藏） ========== -->
+<!-- 主内容 -->
 <div class="content" id="mainContent">
     <div class="header">
         <h1 class="main-title">✨ 青春纪念册 ✨</h1>
         <p class="sub-title">以梦为马，不负韶华 · 我们的毕业时光</p>
     </div>
 
-    <!-- 封面：纯数字 1.jpg ~ 44.jpg -->
+    <!-- 所有图片：assets/images/0.JPG ~ 43.JPG -->
     <div class="section" align="center">
-        <h2 class="section-title">📘 封面系列</h2>
-        <div class="gallery" id="cover"></div>
-    </div>
-
-    <!-- 内页 -->
-    <div class="section" align="center">
-        <h2 class="section-title">📗 内页系列</h2>
-        <div class="gallery" id="inner"></div>
-    </div>
-
-    <!-- 个性页 -->
-    <div class="section" align="center">
-        <h2 class="section-title">📙 个性页系列</h2>
-        <div class="gallery" id="special"></div>
+        <h2 class="section-title">📘 纪念册系列</h2>
+        <div class="gallery" id="gallery"></div>
     </div>
 
     <!-- 放大弹窗 -->
@@ -234,7 +221,7 @@
 </div>
 
 <script>
-// ====================== 班级口号验证 ======================
+// 验证口号
 function checkSlogan() {
     const input = document.getElementById("sloganInput").value.trim();
     const answer = "砥砺前行，勇攀高峰，九天揽月，志在星辰";
@@ -249,19 +236,18 @@ function checkSlogan() {
     }
 }
 
-// 回车触发验证
+// 回车提交
 document.getElementById("sloganInput").addEventListener("keydown", function(e) {
     if (e.key === "Enter") checkSlogan();
 });
 
-// ====================== 加载图片 ======================
-// 封面：1.jpg ~ 44.jpg
-function loadCover() {
-    const box = document.getElementById("cover");
-    for (let i = 1; i <= 44; i++) {
+// 加载所有图片（assets/images/0.JPG ~ 43.JPG）
+function loadImages() {
+    const box = document.getElementById("gallery");
+    for (let i = 0; i < 44; i++) {
         const img = new Image();
-        img.src = `${i}.jpg`;
-        img.alt = `封面第${i}页`;
+        img.src = `assets/images/${i}.JPG`;
+        img.alt = `第${i + 1}页`;
         img.onclick = () => {
             document.getElementById("modal").style.display = "flex";
             document.getElementById("showImg").src = img.src;
@@ -270,22 +256,7 @@ function loadCover() {
     }
 }
 
-// 内页 / 个性页
-function loadImages(prefix, containerId) {
-    const box = document.getElementById(containerId);
-    for (let i = 1; i <= 44; i++) {
-        const img = new Image();
-        img.src = `${prefix}_${i}.jpg`;
-        img.alt = `${prefix}第${i}页`;
-        img.onclick = () => {
-            document.getElementById("modal").style.display = "flex";
-            document.getElementById("showImg").src = img.src;
-        };
-        box.appendChild(img);
-    }
-}
-
-// 关闭放大
+// 关闭大图
 document.querySelector(".close").onclick = () => {
     document.getElementById("modal").style.display = "none";
 };
@@ -295,13 +266,10 @@ document.getElementById("modal").onclick = (e) => {
     }
 };
 
-// 页面加载完成后自动加载图片
+// 页面加载时自动加载所有图片
 window.onload = function() {
-    loadCover();
-    loadImages("内页_批量发片", "inner");
-    loadImages("个性页_批量发片", "special");
+    loadImages();
 };
 </script>
-
 </body>
 </html>
